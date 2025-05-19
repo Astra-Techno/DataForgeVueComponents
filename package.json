@@ -1,6 +1,6 @@
 {
   "name": "@data-forge-services/core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Core component library for Data Forge services including location, timezone, and more.",
   "main": "dist/data-forge.umd.js",
   "module": "dist/data-forge.es.js",
@@ -12,11 +12,13 @@
   },
   "files": [
     "dist",
-    "src"
+    "src",
+    "setup.mjs"
   ],
   "scripts": {
+    "postinstall": "node setup.js",
     "build": "vite build",
-    "setup": "node setup.js"
+    "setup": "node setup.mjs"
   },
   "keywords": [
     "vue",

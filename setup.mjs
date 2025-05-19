@@ -1,20 +1,28 @@
 import fs from 'fs'
-import axios from 'axios'
 import path from 'path'
 
 const services = [
-  { name: 'locationSelector', target: 'packages/location-selector/src/services.config.js' },
-  //{ name: 'timezoneSelector', target: 'packages/timezone-selector/src/services.config.js' }
+  {
+    name: 'locationSelector',
+    target: 'src/location-selector/services.config.js'
+  }
 ]
 
 const endpoint = 'https://api.data-forge.tech'
 
 async function setupService(service) {
+  if (fs.existsSync(service.target)) {
+    //console.log(`⚠️  ${service.name} already configured. Skipping.`)
+    //return
+  }
+
   try {
+    const axios = await import('axios').then(mod => mod.default)
+
     const res = await axios.post(`${endpoint}/api/guest-task/Services/Install`, {
       subtype: 'vue',
       source: service.name,
-      version: '0.1.0'
+      version: '0.1.1'
     })
 
     const config = {
@@ -24,9 +32,8 @@ async function setupService(service) {
       }
     }
 
-    const fileContent = `export default ${JSON.stringify(config, null, 2)}\n`
     fs.mkdirSync(path.dirname(service.target), { recursive: true })
-    fs.writeFileSync(service.target, fileContent)
+    fs.writeFileSync(service.target, `export default ${JSON.stringify(config, null, 2)}\n`)
     console.log(`✅ Token written to ${service.target}`)
   } catch (err) {
     console.error(`❌ Failed for ${service.name}:`, err.message)

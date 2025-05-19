@@ -1,5 +1,4 @@
 src/**/services.config.js
-setup.js
 .vscode/
 .idea/
 .gitignore
