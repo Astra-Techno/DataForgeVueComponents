@@ -19,7 +19,7 @@
 
 <script setup>
 import { ref, watch, onMounted } from 'vue'
-import axios from 'axios'
+import axios from '../axios'
 import Spinner from './../components/spinner.vue'
 
 const props = defineProps({
