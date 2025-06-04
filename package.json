@@ -1,6 +1,6 @@
 {
   "name": "@data-forge-services/core",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Core component library for Data Forge services including location, timezone, and more.",
   "main": "dist/data-forge.umd.js",
   "module": "dist/data-forge.es.js",

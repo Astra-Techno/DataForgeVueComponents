@@ -136,7 +136,7 @@ const loadOptions = async (queryValueForParam) => {
   // If it depends on a param and that param is not provided (and not loading all on mount)
   if (props.apiQueryParamName && !queryValueForParam && !props.loadOnMount && !props.apiQueryString) {
     model.value = ''; // Clear model if dependencies are not met
-    options.value = [];
+    internalOptions.value = [];
     return;
   }
 
@@ -153,7 +153,7 @@ const loadOptions = async (queryValueForParam) => {
   } else if (props.apiQueryParamName && (queryValueForParam === undefined || queryValueForParam === null || queryValueForParam === '') && !props.loadOnMount) {
      // If a param is expected but not provided, and not loading on mount, clear and return
      model.value = '';
-     options.value = [];
+     internalOptions.value = [];
      loading.value = false; // Ensure loading is false
      return;
   }

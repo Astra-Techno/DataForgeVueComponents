@@ -6,12 +6,12 @@
     :required="required"
     :select-class="selectClass"
     :label-class="labelClass"
-    :disabled="disabled || !defaultCountry" 
+    :disabled="disabled || !country" 
     :searchable="searchable"
     placeholder="-- Select State --"
     api-endpoint="/api/all/Location:states" 
     api-query-param-name="country"
-    :api-query-param-value="defaultCountry"
+    :api-query-param-value="country"
     :load-on-mount="false" 
   />
 </template>
@@ -20,7 +20,7 @@
 import BaseSelect from './BaseSelect.vue';
 
 const props = defineProps({
-  defaultCountry: [String], // Renamed from 'country'
+  country: [String], // Renamed from 'country'
   modelValue: [String, Number],
   label: String,
   required: Boolean,
