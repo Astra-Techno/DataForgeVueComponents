@@ -1,3 +1,4 @@
+import './../assets/fallback.css';
 import RegionSelect from './RegionSelect.vue'
 import SubregionSelect from './SubregionSelect.vue'
 import CountrySelect from './CountrySelect.vue'

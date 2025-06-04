@@ -36,7 +36,7 @@ async function setupService(service) {
     fs.writeFileSync(service.target, `export default ${JSON.stringify(config, null, 2)}\n`)
     console.log(`✅ Token written to ${service.target}`)
   } catch (err) {
-    console.error(`❌ Failed for ${service.name}:`, err.message)
+    console.error(`❌ Failed for ${service.name}: ${endpoint}`, err)
   }
 }
 

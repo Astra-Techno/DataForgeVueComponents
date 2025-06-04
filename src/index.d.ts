@@ -6,4 +6,9 @@ declare module '@data-forge-services/core' {
   export const CountrySelect: DefineComponent<any, any, any>
   export const StateSelect: DefineComponent<any, any, any>
   export const CitySelect: DefineComponent<any, any, any>
+  export const PhoneSelect: DefineComponent<any, any, any>
+  export const TimezoneSelect: DefineComponent<any, any, any>
+  export const LanguageSelect: DefineComponent<any, any, any>
+  export const CurrencySelect: DefineComponent<any, any, any>
+  export const AddressInput: DefineComponent<any, any, any>
 }
